@@ -1,0 +1,13 @@
+anaconda
+caffeine
+dash
+dashlane
+docker
+iTerm2
+imageoptim
+notion
+sketch
+slack
+spectacle
+visual-studio-code
+whatsapp

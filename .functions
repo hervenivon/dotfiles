@@ -1,0 +1,40 @@
+# ---------------------------
+# 1.  UTILS
+# ---------------------------
+
+# backup: Backup given file(s)
+# ------------------------------------------------------------
+backup() {
+  for f in "$@"
+    # Don't follow symlink, preserves attributes, recursively
+    do
+      backupname="$f".$(date +%Y%m%d%H%M)
+      cp -a "$f" "$backupname"
+      backupsize=$(stat -f "%z" "$backupname")
+      echo "$backupname created ($backupsize bytes)"
+  done
+}
+
+# ---------------------------
+# 2.  SEARCHING
+# ---------------------------
+
+# spotlight: Search for a file using MacOS Spotlight's metadata
+# -----------------------------------------------------------
+spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
+
+# ---------------------------
+# 3.  PROCESS MANAGEMENT
+# ---------------------------
+
+# findPid: find out the pid of a specified process
+# -----------------------------------------------------
+#     Note that the command name can be specified via a regex
+#     E.g. findPid '/d$/' finds pids of all processes with names ending in 'd'
+#     Without the 'sudo' it will only find processes of the current user
+# -----------------------------------------------------
+findPid () { lsof -t -c "$@" ; }
+
+# my_ps: List processes owned by my user
+# ------------------------------------------------------------
+my_ps () { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }

@@ -1,0 +1,16 @@
+awscli
+curl
+gcc
+git
+go
+htop
+jq
+mosh
+neofetch
+opencv
+pngquant
+tldr
+tree
+webp
+wget
+zsh
