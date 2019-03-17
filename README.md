@@ -42,7 +42,7 @@ Apple security prevents certain applications to be opened after an installation 
 
 You might see the following
 
-<img src="./imgs/cask-security-issue-1.png" />
+<img src="./imgs/cask-security-issue-1.png" width="450px" />
 
 If that is the case, click "OK". Then open `Preferences` application and search for security.
 
