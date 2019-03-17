@@ -88,7 +88,7 @@ And now, you are good to go, cheers 🤓!
 
 ## Results
 
-<img src="./imgs/result.png" width="600px"/>
+<img src="./imgs/result.png" width="720px"/>
 
 ## Developments
 
