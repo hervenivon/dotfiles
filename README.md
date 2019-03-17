@@ -46,11 +46,11 @@ You might see the following
 
 If that is the case, click "OK". Then open `Preferences` application and search for security.
 
-<img src="./imgs/cask-security-issue-2.png" />
+<img src="./imgs/cask-security-issue-2.png" width="580px"/>
 
 Click on `Security & Privacy`.
 
-<img src="./imgs/cask-security-issue-3.png" />
+<img src="./imgs/cask-security-issue-3.png" width="580px"/>
 
 Click on "Open Anyway"
 
@@ -67,7 +67,7 @@ Click on "Open Anyway"
 1. Click Color Presets… again
 1. Select the material-design-colors
 
-<img src="./imgs/iterm2-settings-1.png" />
+<img src="./imgs/iterm2-settings-1.png" width="600px"/>
 
 #### Font Adjustments
 
@@ -76,7 +76,7 @@ Click on "Open Anyway"
 1. Change Font
 1. Select "Hack Regular Nerd Font Complete"
 
-<img src="./imgs/iterm2-settings-2.png" />
+<img src="./imgs/iterm2-settings-2.png" width="600px"/>
 
 ### Finishing Visual Studio Code setup
 
@@ -88,7 +88,7 @@ And now, you are good to go, cheers 🤓!
 
 ## Results
 
-<img src="./imgs/result.png" />
+<img src="./imgs/result.png" width="600px"/>
 
 ## Developments
 
