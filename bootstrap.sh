@@ -279,6 +279,7 @@ install_oh_my_zsh () {
 install_fonts () {
   brew tap caskroom/cask-fonts
   brew cask install font-hack-nerd-font
+  brew cask install font-hack-nerd-font-mono
 }
 
 set_zsh_as_default () {
