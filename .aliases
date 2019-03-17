@@ -60,3 +60,8 @@ alias dockerkillall='docker kill $(docker ps -q)'
 alias dockercleans='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
 alias dockercleanu='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
 alias dockerclean='dockercleanc || true && dockercleani'
+
+# ---------------------------------------
+# 4.  SECURITY
+# ---------------------------------------
+alias ssh-gh-add='ssh-add ~/.ssh/gitservices'
