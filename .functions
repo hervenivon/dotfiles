@@ -1,6 +1,6 @@
-# ---------------------------
+# ------------------------------------------------------------
 # 1.  UTILS
-# ---------------------------
+# ------------------------------------------------------------
 
 # backup: Backup given file(s)
 # ------------------------------------------------------------
@@ -15,9 +15,9 @@ backup() {
   done
 }
 
-# ---------------------------
+# -----------------------------------------------------------
 # 2.  SEARCHING
-# ---------------------------
+# -----------------------------------------------------------
 
 # spotlight: Search for a file using MacOS Spotlight's metadata
 # -----------------------------------------------------------
@@ -28,13 +28,28 @@ spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
 # ---------------------------
 
 # findPid: find out the pid of a specified process
-# -----------------------------------------------------
+# ------------------------------------------------------------
 #     Note that the command name can be specified via a regex
 #     E.g. findPid '/d$/' finds pids of all processes with names ending in 'd'
 #     Without the 'sudo' it will only find processes of the current user
-# -----------------------------------------------------
+# ------------------------------------------------------------
 findPid () { lsof -t -c "$@" ; }
 
 # my_ps: List processes owned by my user
 # ------------------------------------------------------------
 my_ps () { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
+
+# restart: restart Mac OS process
+# ------------------------------------------------------------
+restart () {
+  case "$1" in
+    Finder| finder)
+      killall Finder
+      ;;
+    Dock| dock)
+      killall Dock
+      ;;
+    *)
+      ;;
+  esac
+}
