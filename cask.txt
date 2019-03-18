@@ -3,6 +3,7 @@ caffeine
 dash
 dashlane
 docker
+google-chrome
 iTerm2
 imageoptim
 notion
