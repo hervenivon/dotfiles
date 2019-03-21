@@ -8,6 +8,7 @@ iTerm2
 imageoptim
 notion
 sketch
+skitch
 slack
 spectacle
 visual-studio-code
