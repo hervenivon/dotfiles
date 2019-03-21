@@ -13,6 +13,7 @@ Don’t blindly use this unless you know what you do. Use at your own risk 😊!
 The `bootstrap.sh` script installs all necessary programs and command line utilities, then it creates `symlinks` between the `dotfiles` stored in this repository and your `$HOME` directory.
 
 Installed tools and scripts:
+
 - [Homebrew](https://brew.sh)
 - [mas](https://github.com/mas-cli/mas) - Mac App Store command line utility
 - xcode
