@@ -149,7 +149,7 @@ else
     if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
         . "/usr/local/anaconda3/etc/profile.d/conda.sh"
         # Do not activate a the default base environment
-        # CONDA_CHANGEPS1=false conda activate base
+        CONDA_CHANGEPS1=false conda activate base
     else
         \export PATH="/usr/local/anaconda3/bin:$PATH"
     fi
@@ -159,3 +159,4 @@ unset __conda_setup
 
 source ~/.aliases
 source ~/.functions
+source ~/.iterm2_shell_integration.zsh

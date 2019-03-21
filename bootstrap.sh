@@ -139,6 +139,7 @@ _USE_DEBUG=0
 
 # Initialize additional expected option variables.
 _OPTION_INSTALL=1
+_OPTION_BACKUP=0
 
 # _require_argument()
 #
@@ -175,6 +176,9 @@ do
       ;;
     -I|--no-install)
       _OPTION_INSTALL=0
+      ;;
+    -b|--backup)
+      _OPTION_BACKUP=1
       ;;
     --endopts)
       # Terminate option parsing.
@@ -308,6 +312,10 @@ link_jq () {
   ln -sf `pwd`/.jq ~/.jq
 }
 
+link_iterm2integration () {
+  ln -sf `pwd`/.iterm2_shell_integration.zsh ~/.iterm2_shell_integration.zsh
+}
+
 _execution() {
   _debug printf ">> Performing operation...\\n"
 
@@ -331,15 +339,20 @@ _execution() {
   link_powerlevel9k
   link_zshcompletions
 
-  printf "Backuping dotfiles\n"
-  backup_file $HOME/.zshrc
-  backup_file $HOME/.oh-my-zsh
-  backup_file $HOME/.jq
+  if ((_OPTION_BACKUP))
+  then
+    printf "Backuping dotfiles\n"
+    backup_file $HOME/.zshrc
+    backup_file $HOME/.oh-my-zsh
+    backup_file $HOME/.jq
+    backup_file $HOME/.iterm2_shell_integration
+  fi
 
   printf "Linking dotfiles\n"
   link_ohmyzsh
   link_zshrc
   link_jq
+  link_iterm2integration
 }
 
 ###############################################################################

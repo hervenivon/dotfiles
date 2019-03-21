@@ -78,6 +78,16 @@ Click on "Open Anyway"
 
 <img src="./imgs/iterm2-settings-2.png" width="600px"/>
 
+#### Terminal integration
+
+With iTerm2 comes [shell-integration](https://iterm2.com/documentation-shell-integration.html) which enable further features in iTerm2:
+
+- Command status
+- Download and upload with scp
+- Command history
+- Toolbelt enhancement
+- Recent Directories
+
 ### Finishing Visual Studio Code setup
 
 In order to finish Visual Studio Code setup, we need to gather all its settings. A wonderful extension named [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) is meant for that purpose.
