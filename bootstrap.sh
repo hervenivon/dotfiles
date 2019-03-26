@@ -316,6 +316,11 @@ link_iterm2integration () {
   ln -sf `pwd`/.iterm2_shell_integration.zsh ~/.iterm2_shell_integration.zsh
 }
 
+link_git_config () {
+  ln -sf `pwd`/.gitconfig $HOME/.gitconfig
+  ln -sf `pwd`/.gitignore_global $HOME/.gitignore_global
+}
+
 _execution() {
   _debug printf ">> Performing operation...\\n"
 
@@ -346,6 +351,8 @@ _execution() {
     backup_file $HOME/.oh-my-zsh
     backup_file $HOME/.jq
     backup_file $HOME/.iterm2_shell_integration
+    backup_file $HOME/.gitconfig
+    backup_file $HOME/.gitignore_global
   fi
 
   printf "Linking dotfiles\n"
@@ -353,6 +360,7 @@ _execution() {
   link_zshrc
   link_jq
   link_iterm2integration
+  link_git_config
 }
 
 ###############################################################################
