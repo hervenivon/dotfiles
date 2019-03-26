@@ -1,6 +1,6 @@
 # dotfiles
 
-This repository hosts my personal [dotfiles](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory) and tools to bootstrap a new operational environment.
+This repository hosts my personal [dotfiles](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory) and tools to bootstrap a new minimal operational environment.
 
 ## Disclaimer
 
