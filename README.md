@@ -119,10 +119,13 @@ Updating submodules: `$> git submodule update --recursive --remote`
 Thank you to the following people and their dotfiles. It inspired mine in many ways.
 
 - @ajmalsiddiqui - For the initial inspiration
-- @mathiasbynens - The go-to place for dotfiles inspiration
+- @mathiasbynens - The go-to place for dotfiles references
+- [strap](https://github.com/MikeMcQuaid/strap) - For the reference strap application on Mac OS
 
 ## TODO
 
 - [ ] Dynamic setup of iTerm2 setting based on [dynamic profiles](https://iterm2.com/documentation-dynamic-profiles.html)
+- [ ] Setting up encryption, saving security keys on desktop
+- [ ] Add "found this computer" message
 - [X] Configuration of vscode
-- [ ] other dotfiles
+- [X] other dotfiles
