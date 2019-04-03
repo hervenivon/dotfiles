@@ -140,7 +140,7 @@ else
 fi
 
 # >>> conda init >>>
-# !! Contents within this block is a copied version from a bashrc
+# !! Contents within this block is a copied version from a bashrc !!
 __conda_setup="$(CONDA_REPORT_ERRORS=false '/usr/local/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
 if [ $? -eq 0 ]; then
     \eval "$__conda_setup"
@@ -157,6 +157,7 @@ unset __conda_setup
 # <<< conda init <<<
 
 # >>> nvm init >>>
+# !! From https://www.reddit.com/r/node/comments/4tg5jg/lazy_load_nvm_for_faster_shell_start/ !!
 lazynvm() {
   unset -f nvm node npm
   export NVM_DIR="$HOME/.nvm"
