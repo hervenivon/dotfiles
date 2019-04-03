@@ -321,6 +321,13 @@ link_git_config () {
   ln -sf `pwd`/.gitignore_global $HOME/.gitignore_global
 }
 
+link_and_setup_nvm () {
+  ln -sf `pwd`/.nvmrc $HOME/.nvmrc
+  mkdir -p $HOME/.nvm
+
+  echo "With your first session, you must run `nvm install`."
+}
+
 _execution() {
   _debug printf ">> Performing operation...\\n"
 
@@ -353,6 +360,7 @@ _execution() {
     backup_file $HOME/.iterm2_shell_integration
     backup_file $HOME/.gitconfig
     backup_file $HOME/.gitignore_global
+    backup_file $HOME/.nvmrc
   fi
 
   printf "Linking dotfiles\n"
@@ -361,6 +369,7 @@ _execution() {
   link_jq
   link_iterm2integration
   link_git_config
+  link_and_setup_nvm
 }
 
 ###############################################################################
