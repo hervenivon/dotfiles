@@ -85,7 +85,7 @@ autoload -U compinit && compinit
 # https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
 
 # Prompt settings
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
 # POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 
