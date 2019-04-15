@@ -3,9 +3,6 @@
 # Strict Mode
 set -o nounset
 
-# Exit immediately if a pipeline returns non-zero.
-set -o errexit
-
 # Print a helpful message if a pipeline exit with non-zero code
 trap 'echo "Aborting due to errexit on line $LINENO. Exit code: $?" >&2' ERR
 
@@ -206,6 +203,11 @@ backup_file(){
   done
 }
 
+# Checkout submodule code if necessary
+submodule_update(){
+  git submodule update --init --recursive
+}
+
 # Install homebrew if it is not installed
 install_homebrew () {
   which brew 1>&/dev/null
@@ -288,6 +290,11 @@ install_fonts () {
 
 set_zsh_as_default () {
   chsh -s $(which zsh)
+  if [ ! "$?" -eq 0 ] ; then
+    echo "zsh not an authorized shell. Adding it to \"/etc/shells\""
+    echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells > /dev/null
+    chsh -s $(which zsh)
+  fi
 }
 
 link_powerlevel9k () {
@@ -325,7 +332,7 @@ link_and_setup_nvm () {
   ln -sf `pwd`/.nvmrc $HOME/.nvmrc
   mkdir -p $HOME/.nvm
 
-  echo "With your first session, you must run `nvm install`."
+  echo "With your first session, you must run \`nvm install\`."
 }
 
 _execution() {
@@ -346,6 +353,9 @@ _execution() {
     printf "Making zsh the default shell\n"
     set_zsh_as_default
   fi
+
+  printf "Getting submodules code"
+  submodule_update
 
   printf "Linking theme and plugins for oh-my-zsh\n"
   link_powerlevel9k
