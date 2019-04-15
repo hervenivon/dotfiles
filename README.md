@@ -113,13 +113,15 @@ And now, you are good to go, cheers 🤓!
 
 Updating submodules: `$> git submodule update --recursive --remote`
 
-## Acknowledgements
+## Acknowledgements and inspiration
 
 Thank you to the following people and their dotfiles. It inspired mine in many ways.
 
 - @ajmalsiddiqui - For the initial inspiration
 - @mathiasbynens - The go-to place for dotfiles references
 - [strap](https://github.com/MikeMcQuaid/strap) - For the reference strap application on Mac OS
+
+And if it is not enough go [here](https://github.com/webpro/awesome-dotfiles)!
 
 ## TODO
 
