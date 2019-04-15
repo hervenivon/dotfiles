@@ -59,7 +59,6 @@ Click on "Open Anyway"
 
 #### Color Theme
 
-1. Open terminal and execute the following `$> curl -o ~/Downloads/material-design-colors.itermcolors -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/master/material-design-colors.itermcolors`
 1. Open iTerm2
 1. Go to iTerm2 > Preferences > Profiles > Colors Tab
 1. Click Color Presets… at the bottom right
