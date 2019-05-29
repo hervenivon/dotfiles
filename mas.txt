@@ -1,5 +1,4 @@
 1081413713  # GIF Brewery 3
 1289583905  # Pixelmator Pro
 585829637   # Todoist
-771076721   # Hotspot Shield
 990588172   # Gestimer
