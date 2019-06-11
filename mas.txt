@@ -2,3 +2,4 @@
 1289583905  # Pixelmator Pro
 585829637   # Todoist
 990588172   # Gestimer
+937984704   # Amphetamine (4.2)
