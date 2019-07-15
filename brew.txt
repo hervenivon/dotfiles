@@ -2,6 +2,7 @@ awscli
 curl
 gcc
 git
+git-secrets
 go
 htop
 jq
