@@ -1,6 +1,7 @@
 awscli
 curl
 gcc
+github-markdown-toc
 git
 git-secrets
 go
