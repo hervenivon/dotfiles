@@ -13,6 +13,7 @@ nvm
 opencv
 peco
 pngquant
+telnet
 tldr
 tree
 webp
