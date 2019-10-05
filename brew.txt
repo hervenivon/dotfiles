@@ -11,6 +11,7 @@ mosh
 neofetch
 nvm
 opencv
+peco
 pngquant
 tldr
 tree
