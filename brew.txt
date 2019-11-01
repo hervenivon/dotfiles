@@ -1,5 +1,6 @@
 awscli
 curl
+denisidoro/tools/navi
 gcc
 github-markdown-toc
 git
