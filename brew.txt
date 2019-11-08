@@ -6,6 +6,7 @@ github-markdown-toc
 git
 git-secrets
 go
+gron
 htop
 jq
 mosh
