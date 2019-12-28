@@ -4,6 +4,7 @@ dash
 dashlane
 docker
 google-chrome
+hiddenbar
 iTerm2
 imageoptim
 notion
