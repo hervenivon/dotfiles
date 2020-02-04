@@ -69,6 +69,7 @@ plugins=(
   osx
   pip
   python
+  zsh-autosuggestions
   zsh-completions
 )
 

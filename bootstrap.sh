@@ -305,6 +305,10 @@ link_zshcompletions () {
   ln -sf `pwd`/vendors/zsh-completions vendors/oh-my-zsh/custom/plugins/zsh-completions
 }
 
+link_zshautosuggestions () {
+  ln -sf `pwd`/vendors/zsh-autosuggestions vendors/oh-my-zsh/custom/plugins/zsh-autosuggestions
+}
+
 link_ohmyzsh () {
   ln -sf `pwd`/vendors/oh-my-zsh ~/.oh-my-zsh
 }
@@ -360,6 +364,7 @@ _execution() {
   printf "Linking theme and plugins for oh-my-zsh\n"
   link_powerlevel9k
   link_zshcompletions
+  link_zshautosuggestions
 
   if ((_OPTION_BACKUP))
   then

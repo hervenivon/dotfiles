@@ -7,3 +7,6 @@
 [submodule "vendors/powerlevel9k"]
 	path = vendors/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k.git
+[submodule "vendors/zsh-autosuggestions"]
+	path = vendors/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
