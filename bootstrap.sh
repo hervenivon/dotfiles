@@ -309,6 +309,10 @@ link_zshautosuggestions () {
   ln -sf `pwd`/vendors/zsh-autosuggestions vendors/oh-my-zsh/custom/plugins/zsh-autosuggestions
 }
 
+link_zshsyntaxhighlighting () {
+  ln -sf `pwd`/vendors/zsh-syntax-highlighting vendors/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+}
+
 link_ohmyzsh () {
   ln -sf `pwd`/vendors/oh-my-zsh ~/.oh-my-zsh
 }
@@ -365,6 +369,7 @@ _execution() {
   link_powerlevel9k
   link_zshcompletions
   link_zshautosuggestions
+  link_zshsyntaxhighlighting
 
   if ((_OPTION_BACKUP))
   then
