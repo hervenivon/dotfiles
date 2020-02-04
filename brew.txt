@@ -7,6 +7,7 @@ git
 git-secrets
 go
 gron
+howdoi
 htop
 jq
 mosh
