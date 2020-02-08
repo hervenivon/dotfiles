@@ -8,6 +8,7 @@ hiddenbar
 iTerm2
 imageoptim
 notion
+osxfuse
 sketch
 skitch
 slack
