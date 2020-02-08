@@ -16,6 +16,7 @@ nvm
 opencv
 peco
 pngquant
+s3fs
 telnet
 tldr
 tree
