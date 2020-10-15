@@ -10,6 +10,3 @@
 [submodule "vendors/zsh-autosuggestions"]
 	path = vendors/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule "vendors/zsh-syntax-highlighting"]
-	path = vendors/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting
