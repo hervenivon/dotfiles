@@ -6,6 +6,7 @@ hiddenbar
 iTerm2
 imageoptim
 notion
+signal
 sketch
 skitch
 slack
