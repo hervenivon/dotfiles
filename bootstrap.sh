@@ -214,6 +214,7 @@ install_homebrew () {
   if [ ! "$?" -eq 0 ] ; then
     echo "Homebrew is not installed. Installation attempt 💪."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
     if [ ! "$?" -eq 0 ] ; then
       die "Something went wrong during Homebrew installation."
     fi
@@ -276,13 +277,12 @@ brew_cleanup () {
 }
 
 install_oh_my_zsh () {
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
 install_fonts () {
   brew tap homebrew/cask-fonts
   brew install font-hack-nerd-font
-  brew install font-hack-nerd-font-mono
 }
 
 set_zsh_as_default () {
