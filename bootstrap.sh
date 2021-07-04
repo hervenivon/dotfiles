@@ -276,7 +276,7 @@ brew_cleanup () {
 }
 
 install_oh_my_zsh () {
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
 install_fonts () {
