@@ -5,6 +5,7 @@ google-chrome
 hiddenbar
 iTerm2
 imageoptim
+miro
 notion
 signal
 sketch
