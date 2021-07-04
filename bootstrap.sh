@@ -265,12 +265,9 @@ install_homebrewpackages () {
 }
 
 install_homebrewcask () {
-  echo "Taping Homebrew cask."
-  brew tap caskroom/cask
-
   printf "Installing cask packages from cask.txt\n"
   while read p; do
-    brew cask install "$p"
+    brew install "$p"
   done <cask.txt
 }
 
@@ -283,9 +280,9 @@ install_oh_my_zsh () {
 }
 
 install_fonts () {
-  brew tap caskroom/cask-fonts
-  brew cask install font-hack-nerd-font
-  brew cask install font-hack-nerd-font-mono
+  brew tap homebrew/cask-fonts
+  brew install font-hack-nerd-font
+  brew install font-hack-nerd-font-mono
 }
 
 set_zsh_as_default () {
