@@ -282,7 +282,6 @@ install_oh_my_zsh () {
 install_fonts () {
   brew tap homebrew/cask-fonts
   brew install font-hack-nerd-font
-  brew install font-hack-nerd-font-mono
 }
 
 set_zsh_as_default () {
