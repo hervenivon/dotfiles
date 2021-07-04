@@ -1,7 +1,5 @@
 anaconda
-caffeine
 dash
-dashlane
 docker
 google-chrome
 hiddenbar
