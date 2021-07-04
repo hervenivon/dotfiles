@@ -214,6 +214,7 @@ install_homebrew () {
   if [ ! "$?" -eq 0 ] ; then
     echo "Homebrew is not installed. Installation attempt 💪."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
     if [ ! "$?" -eq 0 ] ; then
       die "Something went wrong during Homebrew installation."
     fi
