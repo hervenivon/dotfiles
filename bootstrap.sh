@@ -213,7 +213,7 @@ install_homebrew () {
   which brew 1>&/dev/null
   if [ ! "$?" -eq 0 ] ; then
     echo "Homebrew is not installed. Installation attempt 💪."
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     if [ ! "$?" -eq 0 ] ; then
       die "Something went wrong during Homebrew installation."
     fi
