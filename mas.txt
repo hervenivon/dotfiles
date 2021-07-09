@@ -4,3 +4,4 @@
 990588172   # Gestimer
 937984704   # Amphetamine (4.2)
 1505779553  # Dashlane for Safari
+1152443474  # Squash — Web Image Compression
