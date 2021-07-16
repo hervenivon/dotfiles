@@ -9,7 +9,6 @@ miro
 notion
 signal
 sketch
-skitch
 slack
 spectacle
 visual-studio-code
