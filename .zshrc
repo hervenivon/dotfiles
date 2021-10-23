@@ -141,34 +141,29 @@ else
 fi
 
 # >>> conda init >>>
-# !! Contents within this block is a copied version from a bashrc !!
-. /opt/homebrew/anaconda3/bin/activate && conda activate /opt/homebrew/anaconda3;
+if [[ -f "/usr/local/anaconda3/bin" ]]; then
+  export PATH="/usr/local/anaconda3/bin:$PATH"
+elif [[ -f "/opt/homebrew/anaconda3/bin/activate" ]]; then
+  . /opt/homebrew/anaconda3/bin/activate && conda activate /opt/homebrew/anaconda3;
+fi
 # <<< conda init <<<
 
 # >>> nvm init >>>
-# !! From https://www.reddit.com/r/node/comments/4tg5jg/lazy_load_nvm_for_faster_shell_start/ !!
-lazynvm() {
-  unset -f nvm node npm
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm installed through brew
-}
-
-nvm() {
-  lazynvm
-  nvm $@
-}
-
-node() {
-  lazynvm
-  node $@
-}
-
-npm() {
-  lazynvm
-  npm $@
-}
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm installed through brew
 # <<< nvm init >>>
+
+# # >>> USD.command init
+# # https://apple.co/36TN9WJ
+
+# export PATH=$PATH:/Application/usdpython/USD:/Application/usdpython/usdzconvert
+# export PYTHONPATH=$PYTHONPATH:/Application/usdpython/USD/lib/python
+
+# # <<< USD.command init
 
 source ~/.aliases
 source ~/.functions
 source ~/.iterm2_shell_integration.zsh
+
+# Init `rvm`
+source $HOME/.rvm/scripts/rvm
