@@ -64,4 +64,4 @@ alias dockerclean='dockercleanc || true && dockercleani'
 # ---------------------------------------
 # 4.  SECURITY
 # ---------------------------------------
-alias ssh-gh-add='ssh-add ~/.ssh/gitservices'
+alias gh-ssh-add='ssh-add ~/.ssh/gitservices'
