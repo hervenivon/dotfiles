@@ -285,6 +285,10 @@ install_fonts () {
   brew install font-hack-nerd-font
 }
 
+install_rvm () {
+  curl -sSL https://get.rvm.io | bash -s stable --ruby
+}
+
 set_zsh_as_default () {
   chsh -s $(which zsh)
   if [ ! "$?" -eq 0 ] ; then
@@ -350,6 +354,7 @@ _execution() {
     install_homebrewcask
     install_fonts
     brew_cleanup
+    install_rvm
 
     printf "Making zsh the default shell\n"
     set_zsh_as_default
