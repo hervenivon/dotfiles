@@ -1,6 +1,5 @@
-anaconda
 dash
-docker
+figma
 google-chrome
 hiddenbar
 iTerm2
@@ -9,7 +8,6 @@ miro
 notion
 signal
 sketch
-skitch
 slack
 spectacle
 visual-studio-code

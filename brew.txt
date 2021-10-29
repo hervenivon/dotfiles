@@ -1,6 +1,8 @@
+Anaconda
 awscli
 curl
 denisidoro/tools/navi
+docker
 gcc
 github-markdown-toc
 git
