@@ -214,7 +214,8 @@ install_homebrew () {
   if [ ! "$?" -eq 0 ] ; then
     echo "Homebrew is not installed. Installation attempt 💪."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+    # echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile is not necessary because it is handled by .zshrc file
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     if [ ! "$?" -eq 0 ] ; then
       die "Something went wrong during Homebrew installation."
     fi
@@ -268,7 +269,7 @@ install_homebrewpackages () {
 install_homebrewcask () {
   printf "Installing cask packages from cask.txt\n"
   while read p; do
-    brew install "$p"
+    brew install --cask "$p"
   done <cask.txt
 }
 
