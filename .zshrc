@@ -1,3 +1,7 @@
+# >>> brew init >>>
+eval "$(/opt/homebrew/bin/brew shellenv)"
+# <<< brew init <<<
+
 # Show OS info when opening a new terminal
 neofetch
 
@@ -151,7 +155,7 @@ fi
 # >>> nvm init >>>
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm installed through brew
-# <<< nvm init >>>
+# <<< nvm init <<<
 
 # # >>> USD.command init
 # # https://apple.co/36TN9WJ
@@ -165,5 +169,7 @@ source ~/.aliases
 source ~/.functions
 source ~/.iterm2_shell_integration.zsh
 
-# Init `rvm`
+# >>> rvm init >>>
 source $HOME/.rvm/scripts/rvm
+# <<< nvm init <<<
+
