@@ -12,6 +12,7 @@ github/gh/gh
 go
 gron
 howdoi
+htmlq
 htop
 jq
 mosh
