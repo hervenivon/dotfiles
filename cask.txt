@@ -1,5 +1,6 @@
 dash
 figma
+flameshot
 google-chrome
 hiddenbar
 iTerm2
