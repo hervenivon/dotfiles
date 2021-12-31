@@ -71,4 +71,4 @@ alias gh-ssh-add='ssh-add ~/.ssh/gitservices'
 # 5.  VARIOUS
 # ---------------------------------------
 
-alias cd-downloads='/Users/herve/Library/Mobile Documents/com~apple~CloudDocs/Downloads'
+alias cd-downloads="'/Users/herve/Library/Mobile Documents/com~apple~CloudDocs/Downloads'"
