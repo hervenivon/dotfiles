@@ -64,4 +64,11 @@ alias dockerclean='dockercleanc || true && dockercleani'
 # ---------------------------------------
 # 4.  SECURITY
 # ---------------------------------------
+
 alias gh-ssh-add='ssh-add ~/.ssh/gitservices'
+
+# ---------------------------------------
+# 5.  VARIOUS
+# ---------------------------------------
+
+alias cd-downloads='/Users/herve/Library/Mobile Documents/com~apple~CloudDocs/Downloads'
