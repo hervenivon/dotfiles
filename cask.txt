@@ -5,7 +5,6 @@ google-chrome
 hiddenbar
 iTerm2
 imageoptim
-miro
 notion
 session-manager-plugin
 signal
