@@ -137,6 +137,8 @@ _USE_DEBUG=0
 # Initialize additional expected option variables.
 _OPTION_INSTALL=1
 _OPTION_BACKUP=0
+_OPTION_FINALIZE=0
+_OPTION_LINK=0
 
 # _require_argument()
 #
@@ -173,6 +175,12 @@ do
       ;;
     -I|--no-install)
       _OPTION_INSTALL=0
+      ;;
+    -f|--finalize)
+      _OPTION_FINALIZE=1
+      ;;
+    -l|--link)
+      _OPTION_LINK=1
       ;;
     -b|--backup)
       _OPTION_BACKUP=1
@@ -342,6 +350,10 @@ _execution() {
     brew_cleanup
     install_rvm
     install_oh_my_zsh
+  fi
+
+  if ((_OPTION_FINALIZE))
+  then
     install_powerlevel10k
     install_zsh_completion
     install_zsh_autosuggestions
@@ -359,11 +371,14 @@ _execution() {
     backup_file $HOME/.nvmrc
   fi
 
-  printf "Linking dotfiles\n"
-  link_zshrc
-  link_jq
-  link_git_config
-  link_and_setup_nvm
+  if ((_OPTION_LINK))
+  then
+    printf "Linking dotfiles\n"
+    link_zshrc
+    link_jq
+    link_git_config
+    link_and_setup_nvm
+  fi
 }
 
 ###############################################################################
