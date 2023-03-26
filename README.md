@@ -45,19 +45,11 @@ You'll have to accept the license agreement after the Xcode installation. It wil
 
 Apple security prevents certain applications to be opened after an installation from `brew` or Internet.
 
-You might see the following
+You will see the following
 
-<img src="./imgs/cask-security-issue-1.png" width="450px" />
+<img src="./imgs/cask-security-issue.png" width="450px" />
 
-If that is the case, click "OK". Then open `Preferences` application and search for security.
-
-<img src="./imgs/cask-security-issue-2.png" width="580px"/>
-
-Click on `Security & Privacy`.
-
-<img src="./imgs/cask-security-issue-3.png" width="580px"/>
-
-Click on "Open Anyway"
+Just click "Open".
 
 ### Further iTerm2 customization
 
