@@ -75,7 +75,6 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
   aws
   common-aliases
-  code
   copyfile
   copypath
   dash
@@ -94,6 +93,7 @@ plugins=(
   xcode
   yarn
   zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 # Activate zsh-completions
@@ -105,12 +105,6 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_HISTORY_IGNORE="?(#c80,)|cd *|ls *"
 
 source $ZSH/oh-my-zsh.sh
-
-###########################################################
-#                POWERLEVEL10K configuration              #
-###########################################################
-
-# TO COMPLETE AFTER INSTALLING POWERLEVEL10K AND FOLLOWING THE WIZARD
 
 # You may need to manually set your language environment
 export LC_ALL=en_US.UTF-8
@@ -146,5 +140,9 @@ source $HOME/.rvm/scripts/rvm
 # iterm2 integration
 source ~/.iterm2_shell_integration.zsh
 
-# Setup zsh-syntax-highlighting last
-source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+###########################################################
+#                POWERLEVEL10K configuration              #
+###########################################################
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

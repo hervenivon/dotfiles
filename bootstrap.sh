@@ -137,7 +137,6 @@ _USE_DEBUG=0
 # Initialize additional expected option variables.
 _OPTION_INSTALL=0
 _OPTION_BACKUP=0
-_OPTION_FINALIZE=0
 _OPTION_LINK=0
 
 # _require_argument()
@@ -173,11 +172,12 @@ do
     --debug)
       _USE_DEBUG=1
       ;;
+    -a|--all)
+      _OPTION_INSTALL=1
+      _OPTION_LINK=1
+      ;;
     -i|--install)
       _OPTION_INSTALL=1
-      ;;
-    -f|--finalize)
-      _OPTION_FINALIZE=1
       ;;
     -l|--link)
       _OPTION_LINK=1
@@ -261,13 +261,9 @@ install_mac_app_store_applications () {
   done <mas.txt
 }
 
-
 install_homebrewpackages () {
   printf "Installing homebrew packages from brew.txt\n"
-  while read p; do
-    app=$(echo $p | sed -E 's/([0-9a-zA-Z\/]+)( *#.*)/\1/')
-    brew install "$app"
-  done <brew.txt
+  brew install $( < brew.txt )
 }
 
 install_homebrewcask () {
@@ -292,28 +288,13 @@ install_rvm () {
   curl -sSL https://get.rvm.io | bash -s stable --ruby
 }
 
-install_oh_my_zsh () {
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-}
-
-install_powerlevel10k () {
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-}
-
-install_zsh_completion() {
-  git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-completions
-}
-
-install_zsh_autosuggestions() {
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-}
-
 install_iterm2_shell_integration () {
   curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 }
 
 link_zshrc () {
   ln -sf `pwd`/.zshrc $HOME/.zshrc
+  ln -sf `pwd`/.p10k.zsh $HOME/.p10k.zsh
   ln -sf `pwd`/.aliases $HOME/.aliases
   ln -sf `pwd`/.functions $HOME/.functions
 }
@@ -334,6 +315,26 @@ link_and_setup_nvm () {
   echo "With your first session, you must run \`nvm install\`."
 }
 
+link_powerlevelink_powerlevel10k () {
+  ln -sf `pwd`/vendors/powerlevel10k vendors/oh-my-zsh/custom/themes/powerlevel10k
+}
+
+link_zshcompletions () {
+  ln -sf `pwd`/vendors/zsh-completions vendors/oh-my-zsh/custom/plugins/zsh-completions
+}
+
+link_zshautosuggestions () {
+  ln -sf `pwd`/vendors/zsh-autosuggestions vendors/oh-my-zsh/custom/plugins/zsh-autosuggestions
+}
+
+link_zsh_syntax_highlighting () {
+  ln -sf `pwd`/vendors/zsh-syntax-highlighting vendors/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+}
+
+link_ohmyzsh () {
+  ln -sf `pwd`/vendors/oh-my-zsh ~/.oh-my-zsh
+}
+
 _execution() {
   _debug printf ">> Performing operation...\\n"
 
@@ -349,14 +350,6 @@ _execution() {
     install_nerd_fonts
     brew_cleanup
     install_rvm
-    install_oh_my_zsh
-  fi
-
-  if ((_OPTION_FINALIZE))
-  then
-    install_powerlevel10k
-    install_zsh_completion
-    install_zsh_autosuggestions
     install_iterm2_shell_integration
   fi
 
@@ -373,6 +366,15 @@ _execution() {
 
   if ((_OPTION_LINK))
   then
+    printf "Linking theme and plugins for oh-my-zsh\n"
+    link_powerlevelink_powerlevel10k
+    link_zshcompletions
+    link_zshautosuggestions
+    link_zsh_syntax_highlighting
+
+    printf "Linking oh-my-zsh\n"
+    link_ohmyzsh
+
     printf "Linking dotfiles\n"
     link_zshrc
     link_jq

@@ -4,6 +4,7 @@ calibre                 # ebook manager
 cleanmymac
 dash
 discord
+docker
 figma
 google-chrome
 grammarly-desktop
@@ -11,11 +12,11 @@ hiddenbar
 iTerm2
 notion
 postman
+rectangle
 session-manager-plugin  # for aws cli and ssm
 signal
 sf-symbols              # apple's SF Symbols
 slack
-spectacle
 visual-studio-code
 whatsapp
 zoom

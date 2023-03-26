@@ -1,7 +1,5 @@
 awscli
-curl
 denisidoro/tools/navi
-docker
 ffmpeg
 gcc
 git
@@ -29,4 +27,3 @@ webp
 wget
 yq
 youtube-dl
-zsh-syntax-highlighting

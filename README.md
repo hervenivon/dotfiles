@@ -113,6 +113,10 @@ Some tools require further configuration, like Clean My Mac X - which requires a
 
 <img src="./imgs/result.png" width="720px"/>
 
+## Developments
+
+Updating submodules: `git submodule update --recursive --remote`
+
 ## Acknowledgements and inspiration
 
 Thank you to the following people and their dotfiles. It inspired mine in many ways.
