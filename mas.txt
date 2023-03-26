@@ -1,4 +1,11 @@
 1081413713  # GIF Brewery 3
+1152443474  # Squash (visual image optimizer)
 1289583905  # Pixelmator Pro
-937984704   # Amphetamine (4.2)
+1496833156  # Apple Playgrounds
+462054704   # Microsoft Word
+462058435   # Microsoft Excel
+497799835   # Apple Xcode
 517914548   # Dashlane
+640199958   # Apple Developer
+899247664   # Apple TestFlight
+937984704   # Amphetamine
