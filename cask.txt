@@ -1,3 +1,4 @@
+aerial
 amazon-chime
 anaconda
 calibre                 # ebook manager
@@ -5,10 +6,10 @@ cleanmymac
 dash
 discord
 docker
+dropbox
 figma
 google-chrome
 grammarly-desktop
-hiddenbar
 iTerm2
 notion
 postman

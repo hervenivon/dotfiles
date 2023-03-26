@@ -1,7 +1,11 @@
+1055511498  # Day One
 1152443474  # Squash (visual image optimizer)
 1289583905  # Pixelmator Pro
+1452453066  # Hidden Bar
 1496833156  # Apple Playgrounds
 1527619437  # Maccy (clipboard manager)
+1559269364  # Notion Web Clipper
+1598429775  # Antidote for Safari
 1643131813  # NexSnap Screenshot editor
 462054704   # Microsoft Word
 462058435   # Microsoft Excel
