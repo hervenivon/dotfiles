@@ -203,11 +203,6 @@ backup_file(){
   done
 }
 
-# Checkout submodule code if necessary
-submodule_update(){
-  git submodule update --init --recursive
-}
-
 # Install homebrew if it is not installed
 install_homebrew () {
   which brew 1>&/dev/null
@@ -253,7 +248,7 @@ install_xcode () {
 install_mac_app_store_applications () {
   printf "Installing Mac App Store applications 💻.\n"
   while read p; do
-    app=$(echo $p | sed -E 's/([0-9]+)( *#.*)/\1/')
+    app=$(echo $p | sed -E 's/([0-9a-zA-Z\/]+)( *#.*)/\1/')
     mas install "$app"
   done <mas.txt
 }
@@ -262,57 +257,51 @@ install_mac_app_store_applications () {
 install_homebrewpackages () {
   printf "Installing homebrew packages from brew.txt\n"
   while read p; do
-    brew install "$p"
+    app=$(echo $p | sed -E 's/([0-9a-zA-Z\/]+)( *#.*)/\1/')
+    brew install "$app"
   done <brew.txt
 }
 
 install_homebrewcask () {
   printf "Installing cask packages from cask.txt\n"
   while read p; do
-    brew install --cask "$p"
+    app=$(echo $p | sed -E 's/([0-9a-zA-Z\/]+)( *#.*)/\1/')
+    brew install --cask "$app"
   done <cask.txt
+}
+
+# https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
+install_nerd_fonts () {
+  brew tap homebrew/cask-fonts
+  brew install font-hack-nerd-font
 }
 
 brew_cleanup () {
   brew cleanup
 }
 
-install_oh_my_zsh () {
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-}
-
-install_fonts () {
-  brew tap homebrew/cask-fonts
-  brew install font-hack-nerd-font
-}
-
 install_rvm () {
+  curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+  curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
+  echo 409B6B1796C275462A1703113804BB82D39DC0E3:6: | gpg --import-ownertrust
+  echo 7D2BAF1CF37B13E2069D6956105BD0E739499BDB:6: | gpg --import-ownertrust
   curl -sSL https://get.rvm.io | bash -s stable --ruby
 }
 
-set_zsh_as_default () {
-  chsh -s $(which zsh)
-  if [ ! "$?" -eq 0 ] ; then
-    echo "zsh not an authorized shell. Adding it to \"/etc/shells\""
-    echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells > /dev/null
-    chsh -s $(which zsh)
-  fi
+install_oh_my_zsh () {
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
-link_powerlevel9k () {
-  ln -sf `pwd`/vendors/powerlevel9k vendors/oh-my-zsh/custom/themes/powerlevel9k
+install_powerlevel10k () {
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 }
 
-link_zshcompletions () {
-  ln -sf `pwd`/vendors/zsh-completions vendors/oh-my-zsh/custom/plugins/zsh-completions
+install_zsh_completion() {
+  git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-completions
 }
 
-link_zshautosuggestions () {
-  ln -sf `pwd`/vendors/zsh-autosuggestions vendors/oh-my-zsh/custom/plugins/zsh-autosuggestions
-}
-
-link_ohmyzsh () {
-  ln -sf `pwd`/vendors/oh-my-zsh ~/.oh-my-zsh
+install_zsh_autosuggestions() {
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 }
 
 link_zshrc () {
@@ -323,10 +312,6 @@ link_zshrc () {
 
 link_jq () {
   ln -sf `pwd`/.jq ~/.jq
-}
-
-link_iterm2integration () {
-  ln -sf `pwd`/.iterm2_shell_integration.zsh ~/.iterm2_shell_integration.zsh
 }
 
 link_git_config () {
@@ -353,21 +338,14 @@ _execution() {
     install_mac_app_store_applications
     install_homebrewpackages
     install_homebrewcask
-    install_fonts
+    install_nerd_fonts
     brew_cleanup
     install_rvm
-
-    printf "Making zsh the default shell\n"
-    set_zsh_as_default
+    install_oh_my_zsh
+    install_powerlevel10k
+    install_zsh_completion
+    install_zsh_autosuggestions
   fi
-
-  printf "Getting submodules code"
-  submodule_update
-
-  printf "Linking theme and plugins for oh-my-zsh\n"
-  link_powerlevel9k
-  link_zshcompletions
-  link_zshautosuggestions
 
   if ((_OPTION_BACKUP))
   then
@@ -375,17 +353,14 @@ _execution() {
     backup_file $HOME/.zshrc
     backup_file $HOME/.oh-my-zsh
     backup_file $HOME/.jq
-    backup_file $HOME/.iterm2_shell_integration
     backup_file $HOME/.gitconfig
     backup_file $HOME/.gitignore_global
     backup_file $HOME/.nvmrc
   fi
 
   printf "Linking dotfiles\n"
-  link_ohmyzsh
   link_zshrc
   link_jq
-  link_iterm2integration
   link_git_config
   link_and_setup_nvm
 }

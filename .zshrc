@@ -9,13 +9,13 @@ neofetch
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
-# Font mode for powerlevel9k
-POWERLEVEL9K_MODE='nerdfont-complete'
-
-# Set name of the theme to load.
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -24,11 +24,16 @@ CASE_SENSITIVE="true"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -37,9 +42,12 @@ CASE_SENSITIVE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -59,23 +67,42 @@ HIST_STAMPS="yyyy-mm-dd"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
 # For more details see https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins
 plugins=(
   aws
   common-aliases
+  code
   copyfile
+  copypath
+  dash
   docker
+  emoji
+  encode64
   extract
+  gh
   git
   gitfast
-  jira
+  macos
   npm
-  osx
+  nvm
   pip
   python
+  xcode
+  yarn
   zsh-autosuggestions
-  zsh-completions
 )
+
+# Activate zsh-completions
+# Can't be activated with plugins=(zsh-completions) becase of issue #603
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+# zsh-autosuggestions configuration
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_HISTORY_IGNORE="?(#c80,)|cd *|ls *"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,55 +110,10 @@ source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit
 
 ###########################################################
-#                 POWERLEVEL9K configuration              #
+#                POWERLEVEL10K configuration              #
 ###########################################################
 
-# https://github.com/bhilburn/powerlevel9k
-# https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
-
-# Prompt settings
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-# POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-
-# Anaconda settings
-POWERLEVEL9K_ANACONDA_FOREGROUND='002'
-POWERLEVEL9K_ANACONDA_BACKGROUND='023'
-
-# Dir settings
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-
-# Battery settings
-POWERLEVEL9K_BATTERY_LOW_FOREGROUND='red'
-POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND='blue'
-POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND='green'
-POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND='blue'
-POWERLEVEL9K_BATTERY_VERBOSE=true
-
-# Execution time
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=2
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=2
-
-# History
-POWERLEVEL9K_HISTORY_FOREGROUND='236'
-POWERLEVEL9K_HISTORY_BACKGROUND='249'
-
-# Prompt elements
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-  anaconda
-  context
-  ssh
-  dir
-  vcs
-  status
-  command_execution_time
-)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
-  root_indicator
-  background_jobs
-  time
-  battery
-)
+# TO COMPLETE AFTER INSTALLING POWERLEVEL10K AND FOLLOWING THE WIZARD
 
 # You may need to manually set your language environment
 export LC_ALL=en_US.UTF-8
@@ -157,19 +139,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm installed through brew
 # <<< nvm init <<<
 
-# # >>> USD.command init
-# # https://apple.co/36TN9WJ
-
-# export PATH=$PATH:/Application/usdpython/USD:/Application/usdpython/usdzconvert
-# export PYTHONPATH=$PYTHONPATH:/Application/usdpython/USD/lib/python
-
-# # <<< USD.command init
-
 source ~/.aliases
 source ~/.functions
-source ~/.iterm2_shell_integration.zsh
 
 # >>> rvm init >>>
 source $HOME/.rvm/scripts/rvm
 # <<< nvm init <<<
 
+# Setup zsh-syntax-highlighting last
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

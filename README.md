@@ -24,9 +24,9 @@ Installed tools and scripts:
 
 ## Requirements
 
-A Mac OS X environment
+A Mac OS X environment with ARM chip with Catalina or higher. (in [2019](https://en.wikipedia.org/wiki/Z_shell) Mac OSX default to `zsh`).
 
-## Bootstraping an environment
+## Bootstraping a new Mac
 
 To bootstrap a new environment follow these steps:
 
@@ -108,10 +108,6 @@ And now, you are good to go, cheers 🤓!
 ## Terminal results
 
 <img src="./imgs/result.png" width="720px"/>
-
-## Developments
-
-Updating submodules: `$> git submodule update --recursive --remote`
 
 ## Acknowledgements and inspiration
 

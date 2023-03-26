@@ -1,6 +1,4 @@
 1081413713  # GIF Brewery 3
 1289583905  # Pixelmator Pro
-585829637   # Todoist
-990588172   # Gestimer
 937984704   # Amphetamine (4.2)
-517914548   # Dashlane for Safari
+517914548   # Dashlane

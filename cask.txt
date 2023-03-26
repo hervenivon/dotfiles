@@ -1,14 +1,14 @@
+calibre                 # ebook manager
+cleanmymac
 dash
 figma
-flameshot
 google-chrome
 hiddenbar
 iTerm2
 imageoptim
 notion
-session-manager-plugin
+session-manager-plugin  # for aws cli and ssm
 signal
-sketch
 slack
 spectacle
 visual-studio-code
