@@ -304,6 +304,10 @@ install_zsh_autosuggestions() {
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 }
 
+install_iterm2_shell_integration () {
+  curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
+}
+
 link_zshrc () {
   ln -sf `pwd`/.zshrc $HOME/.zshrc
   ln -sf `pwd`/.aliases $HOME/.aliases
@@ -345,6 +349,7 @@ _execution() {
     install_powerlevel10k
     install_zsh_completion
     install_zsh_autosuggestions
+    install_iterm2_shell_integration
   fi
 
   if ((_OPTION_BACKUP))

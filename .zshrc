@@ -106,9 +106,6 @@ ZSH_AUTOSUGGEST_HISTORY_IGNORE="?(#c80,)|cd *|ls *"
 
 source $ZSH/oh-my-zsh.sh
 
-# Setting zsh-completions
-autoload -U compinit && compinit
-
 ###########################################################
 #                POWERLEVEL10K configuration              #
 ###########################################################
@@ -145,6 +142,9 @@ source ~/.functions
 # >>> rvm init >>>
 source $HOME/.rvm/scripts/rvm
 # <<< nvm init <<<
+
+# iterm2 integration
+source ~/.iterm2_shell_integration.zsh
 
 # Setup zsh-syntax-highlighting last
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
