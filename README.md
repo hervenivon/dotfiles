@@ -68,7 +68,7 @@ Just click "Open".
 #### Font Adjustments
 
 1. Open iTerm2
-1. Go to iTerm2 > Preferences > Profiles > Text > Font
+1. Go to iTerm2 > Settings > Profiles > Text > Font
 1. Change Font
 1. Select "Hack Regular Nerd Font Complete"
 
