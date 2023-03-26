@@ -37,9 +37,13 @@ To bootstrap a new environment follow these steps:
 1. Execute the bootstraping script: `$> sh ./bootstrap.sh`
 1. Open `iTerm2` and follow the bellow instructions to finish the setup (color theme and fonts)
 
+### Accept license agreement for Xcode
+
+You'll have to accept the license agreement after the Xcode installation. It will be triggered after the first `git pull`.
+
 ### Security alerts
 
-Apple security prevents certain applications to be opened after an installation from Internet.
+Apple security prevents certain applications to be opened after an installation from `brew` or Internet.
 
 You might see the following
 
