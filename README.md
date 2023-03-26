@@ -35,7 +35,7 @@ To bootstrap a new environment follow these steps:
 1. Clone this repository: `$> git clone https://github.com/hervenivon/dotfiles`
 1. `$> cd dotfiles`
 1. Execute the bootstraping script: `$> sh ./bootstrap.sh`
-1. Open `iTerm2`
+1. Open `iTerm2` and follow the bellow instructions to finish the setup (color theme and fonts)
 
 ### Security alerts
 
@@ -90,20 +90,14 @@ With iTerm2 comes [shell-integration](https://iterm2.com/documentation-shell-int
 
 ### Finishing Visual Studio Code setup
 
-In order to finish Visual Studio Code setup, we need to gather all its settings. A wonderful extension named [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) is meant for that purpose.
-
-1. Install [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)
-1. Get a token from GitHub that only enables gist creation (see Settings Sync for more details)
-1. Once the extension is installed, download your settings: press *Shift + Alt + D*
-1. Enter your GitHub Token (from (2))
-1. Enter the GitHub Gist ID for the vscode settings
-1. Settings Downloaded. You are Done! All your files are downloaded
+1. Open the `Visual Studio Code` application (`code .` in `iterm2` for example)
+1. Open the Account menu in the lower left corner and click "Sign In"
+1. Activate Settings Sync
+1. You are all set
 
 ### Others
 
-Some other tools like Sketch required manual registration.
-
-And now, you are good to go, cheers 🤓!
+Some tools require further configuration, like Clean My Mac X - which requires a license.
 
 ## Terminal results
 
@@ -118,11 +112,3 @@ Thank you to the following people and their dotfiles. It inspired mine in many w
 - [strap](https://github.com/MikeMcQuaid/strap) - For the reference strap application on Mac OS
 
 And if it is not enough go [here](https://github.com/webpro/awesome-dotfiles)!
-
-## TODO
-
-- [ ] Dynamic setup of iTerm2 setting based on [dynamic profiles](https://iterm2.com/documentation-dynamic-profiles.html)
-- [ ] Setting up encryption, saving security keys on desktop
-- [ ] Add "found this computer" message
-- [X] Configuration of vscode
-- [X] other dotfiles
