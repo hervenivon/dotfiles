@@ -9,3 +9,4 @@
 640199958   # Apple Developer
 899247664   # Apple TestFlight
 937984704   # Amphetamine
+1527619437  # Maccy (clipboard manager)

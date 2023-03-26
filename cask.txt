@@ -18,3 +18,4 @@ slack
 spectacle
 visual-studio-code
 whatsapp
+zoom
