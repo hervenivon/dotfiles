@@ -135,7 +135,7 @@ _PRINT_HELP=0
 _USE_DEBUG=0
 
 # Initialize additional expected option variables.
-_OPTION_INSTALL=1
+_OPTION_INSTALL=0
 _OPTION_BACKUP=0
 _OPTION_FINALIZE=0
 _OPTION_LINK=0
@@ -173,8 +173,8 @@ do
     --debug)
       _USE_DEBUG=1
       ;;
-    -I|--no-install)
-      _OPTION_INSTALL=0
+    -i|--install)
+      _OPTION_INSTALL=1
       ;;
     -f|--finalize)
       _OPTION_FINALIZE=1
