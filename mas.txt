@@ -1,4 +1,3 @@
-1081413713  # GIF Brewery 3
 1152443474  # Squash (visual image optimizer)
 1289583905  # Pixelmator Pro
 1496833156  # Apple Playgrounds
