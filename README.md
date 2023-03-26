@@ -88,14 +88,28 @@ With iTerm2 comes [shell-integration](https://iterm2.com/documentation-shell-int
 - Toolbelt enhancement
 - Recent Directories
 
-### Finishing Visual Studio Code setup
+### Finishing the setup
+
+#### `gitservice` ssh key
+
+- [Generate a new ssh key with a passphrase](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent):
+  - `ssh-keygen -t ed25519 -C "your@email.com"`
+  - file name: `~/.ssh/gitservices`
+  - passphrase: `<you choose>`
+- [Update github ssh key with the public key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+  - `cat ~/.ssh/gitservices.pub`
+  - copy the result to your clipboard
+  - go to [github.com (create a new ssh key)](https://github.com/settings/ssh/new)
+- `gh-ssh-add` (an alias to `ssh-add ~/.ssh/gitservices` added by the bootstrap script)
+
+#### Visual Studio Code setup
 
 1. Open the `Visual Studio Code` application (`code .` in `iterm2` for example)
 1. Open the Account menu in the lower left corner and click "Sign In"
 1. Activate Settings Sync
 1. You are all set
 
-### Others
+#### Others
 
 Some tools require further configuration, like Clean My Mac X - which requires a license.
 
