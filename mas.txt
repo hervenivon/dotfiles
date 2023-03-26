@@ -3,7 +3,6 @@
 1496833156  # Apple Playgrounds
 462054704   # Microsoft Word
 462058435   # Microsoft Excel
-497799835   # Apple Xcode
 517914548   # Dashlane
 640199958   # Apple Developer
 899247664   # Apple TestFlight
