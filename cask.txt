@@ -1,4 +1,3 @@
-aerial
 amazon-chime
 anaconda
 calibre                 # ebook manager
