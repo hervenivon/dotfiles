@@ -43,6 +43,10 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
+# Zsh variable to determine what to ignore,
+# in this case everything starting with _ or .
+# from https://stackoverflow.com/questions/3437454/zsh-wants-to-autocorrect-a-command-with-an-before-it
+CORRECT_IGNORE="[_|.]*"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -86,7 +90,6 @@ plugins=(
   git
   gitfast
   macos
-  npm
   nvm
   pip
   python
@@ -133,10 +136,6 @@ export NVM_DIR="$HOME/.nvm"
 source ~/.aliases
 source ~/.functions
 
-# >>> rvm init >>>
-source $HOME/.rvm/scripts/rvm
-# <<< nvm init <<<
-
 # iterm2 integration
 source ~/.iterm2_shell_integration.zsh
 
@@ -146,3 +145,84 @@ source ~/.iterm2_shell_integration.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/herve/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+# bun completions
+[ -s "/Users/herve/.bun/_bun" ] && source "/Users/herve/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+
+##########################################################
+#             npm command completion script              #
+#                                                        #
+# Installation: npm completion >> ~/.zshrc               #
+##########################################################
+
+if type complete &>/dev/null; then
+  _npm_completion () {
+    local words cword
+    if type _get_comp_words_by_ref &>/dev/null; then
+      _get_comp_words_by_ref -n = -n @ -n : -w words -i cword
+    else
+      cword="$COMP_CWORD"
+      words=("${COMP_WORDS[@]}")
+    fi
+
+    local si="$IFS"
+    if ! IFS=$'\n' COMPREPLY=($(COMP_CWORD="$cword" \
+                           COMP_LINE="$COMP_LINE" \
+                           COMP_POINT="$COMP_POINT" \
+                           npm completion -- "${words[@]}" \
+                           2>/dev/null)); then
+      local ret=$?
+      IFS="$si"
+      return $ret
+    fi
+    IFS="$si"
+    if type __ltrim_colon_completions &>/dev/null; then
+      __ltrim_colon_completions "${words[cword]}"
+    fi
+  }
+  complete -o default -F _npm_completion npm
+elif type compdef &>/dev/null; then
+  _npm_completion() {
+    local si=$IFS
+    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
+                 COMP_LINE=$BUFFER \
+                 COMP_POINT=0 \
+                 npm completion -- "${words[@]}" \
+                 2>/dev/null)
+    IFS=$si
+  }
+  compdef _npm_completion npm
+elif type compctl &>/dev/null; then
+  _npm_completion () {
+    local cword line point words si
+    read -Ac words
+    read -cn cword
+    let cword-=1
+    read -l line
+    read -ln point
+    si="$IFS"
+    if ! IFS=$'\n' reply=($(COMP_CWORD="$cword" \
+                       COMP_LINE="$line" \
+                       COMP_POINT="$point" \
+                       npm completion -- "${words[@]}" \
+                       2>/dev/null)); then
+
+      local ret=$?
+      IFS="$si"
+      return $ret
+    fi
+    IFS="$si"
+  }
+  compctl -K _npm_completion npm
+fi
