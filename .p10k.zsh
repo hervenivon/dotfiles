@@ -1336,7 +1336,7 @@
   #[ aws: aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) ]#
   # Show aws only when the command you are typing invokes one of these tools.
   # Tip: Remove the next line to always show aws.
-  typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws|awless|terraform|pulumi|terragrunt'
+  # typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws|awless|terraform|pulumi|terragrunt'
 
   # POWERLEVEL9K_AWS_CLASSES is an array with even number of elements. The first element
   # in each pair defines a pattern against which the current AWS profile gets matched.
@@ -1361,12 +1361,17 @@
   #   typeset -g POWERLEVEL9K_AWS_TEST_FOREGROUND=28
   #   typeset -g POWERLEVEL9K_AWS_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
   #   typeset -g POWERLEVEL9K_AWS_TEST_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
+  #
+  # Colors ref https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences
   typeset -g POWERLEVEL9K_AWS_CLASSES=(
-      # '*prod*'  PROD    # These values are examples that are unlikely
-      # '*test*'  TEST    # to match your needs. Customize them as needed.
+      '*prod*'  PROD
+      '*staging*'  STAGING
       '*'       DEFAULT)
-  typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND=208
-  # typeset -g POWERLEVEL9K_AWS_DEFAULT_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND=39
+  typeset -g POWERLEVEL9K_AWS_PROD_FOREGROUND=196
+  typeset -g POWERLEVEL9K_AWS_STAGING_FOREGROUND=208
+  typeset -g POWERLEVEL9K_AWS_STAGING_VISUAL_IDENTIFIER_EXPANSION='🍪'
+  typeset -g POWERLEVEL9K_AWS_PROD_VISUAL_IDENTIFIER_EXPANSION='⚠️ '
 
   # AWS segment format. The following parameters are available within the expansion.
   #
