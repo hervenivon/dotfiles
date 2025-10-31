@@ -25,5 +25,3 @@
 	prune = true
 [diff]
 	colorMoved = zebra
-[url "https://@github.com"]
-	insteadOf = ssh://git@github.com
