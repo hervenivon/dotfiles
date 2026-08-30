@@ -109,6 +109,10 @@ With iTerm2 comes [shell-integration](https://iterm2.com/documentation-shell-int
 
 Some tools require further configuration, like Clean My Mac X - which requires a license.
 
+#### AI agents (Claude Code & friends)
+
+`bootstrap.sh --link` symlinks `.claude/CLAUDE.md` to `~/.claude/CLAUDE.md` — global instructions every Claude Code session loads (multi-account Google Workspace CLI usage, etc.). Reusable agent skills live in a dedicated repo: [hervenivon/skills](https://github.com/hervenivon/skills); follow its README to install them on a new machine.
+
 ## Terminal results
 
 <img src="./imgs/result.png" width="720px"/>

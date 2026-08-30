@@ -335,6 +335,11 @@ link_ohmyzsh () {
   ln -sf `pwd`/vendors/oh-my-zsh ~/.oh-my-zsh
 }
 
+link_claude () {
+  mkdir -p $HOME/.claude
+  ln -sf `pwd`/.claude/CLAUDE.md $HOME/.claude/CLAUDE.md
+}
+
 _execution() {
   _debug printf ">> Performing operation...\\n"
 
@@ -362,6 +367,7 @@ _execution() {
     backup_file $HOME/.gitconfig
     backup_file $HOME/.gitignore_global
     backup_file $HOME/.nvmrc
+    backup_file $HOME/.claude/CLAUDE.md
   fi
 
   if ((_OPTION_LINK))
@@ -380,6 +386,7 @@ _execution() {
     link_jq
     link_git_config
     link_and_setup_nvm
+    link_claude
   fi
 }
 
