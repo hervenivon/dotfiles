@@ -21,6 +21,7 @@ opencv
 peco
 PeonPing/tap/peon-ping
 pngquant
+pnpm
 telnet
 tldr
 tree
