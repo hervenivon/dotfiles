@@ -229,7 +229,7 @@ elif type compctl &>/dev/null; then
 fi
 
 # pnpm
-export PNPM_HOME="/Users/herve/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -237,5 +237,5 @@ esac
 # pnpm end
 
 # peon-ping quick controls
-alias peon="bash /Users/herve/.claude/hooks/peon-ping/peon.sh"
-[ -f /Users/herve/.claude/hooks/peon-ping/completions.bash ] && source /Users/herve/.claude/hooks/peon-ping/completions.bash
+alias peon="bash $HOME/.claude/hooks/peon-ping/peon.sh"
+[ -f "$HOME/.claude/hooks/peon-ping/completions.bash" ] && source "$HOME/.claude/hooks/peon-ping/completions.bash"
