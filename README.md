@@ -113,6 +113,8 @@ Some tools require further configuration, like Clean My Mac X - which requires a
 
 `bootstrap.sh --link` symlinks `.claude/CLAUDE.md` to `~/.claude/CLAUDE.md` — global instructions every Claude Code session loads (multi-account Google Workspace CLI usage, etc.). Reusable agent skills live in a dedicated repo: [hervenivon/skills](https://github.com/hervenivon/skills); follow its README to install them on a new machine.
 
+[peon-ping](https://peonping.com) (in `brew.txt`) adds sound effects and desktop notifications to Claude Code sessions. It installs its hooks under `~/.claude/hooks/peon-ping/`, and `.zshrc` exposes them through the `peon` alias plus shell completions.
+
 ## Terminal results
 
 <img src="./imgs/result.png" width="720px"/>
