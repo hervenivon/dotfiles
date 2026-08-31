@@ -19,6 +19,7 @@ neofetch
 nvm
 opencv
 peco
+PeonPing/tap/peon-ping
 pngquant
 telnet
 tldr
